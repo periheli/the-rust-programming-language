@@ -1,3 +1,3 @@
 [workspace]
 resolver = "3"
-members = ["branches", "functions", "guessing_game", "loops", "variables"]
+members = ["branches", "enums", "functions", "guessing_game", "loops", "playground", "rectangles", "variables"]
