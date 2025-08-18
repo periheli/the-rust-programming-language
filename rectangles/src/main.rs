@@ -79,8 +79,8 @@ fn area_tuple(dimensions: (u32, u32)) -> u32 {
     dimensions.0 * dimensions.1
 }
 
-fn area_struct(rectanle: &Rectangle) -> u32 {
-    rectanle.width * rectanle.height
+fn area_struct(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
 
 impl Rectangle {

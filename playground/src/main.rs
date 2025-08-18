@@ -21,3 +21,14 @@ fn main2() {
     let mut v = vec![1, 2, 3];
     copy_to_prev(&mut v, 1);
 }
+
+use std::{sync::Arc, thread};
+fn main3() {
+    let s = String::from("Hello world");
+    let a = Arc::new(&s);
+    // let a = Arc::new(s);
+    let a2 = Arc::clone(&a);
+    let t = thread::spawn(move || a2.len());
+    let len = t.join().unwrap();
+    println!("{} {}", a, len);
+}
