@@ -32,3 +32,14 @@ fn main3() {
     let len = t.join().unwrap();
     println!("{} {}", a, len);
 }
+
+fn reverse(v: &mut Vec<String>) {
+    let n = v.len();
+    for i in 0..n / 2 {
+        let p1 = &mut v[i] as *mut String;
+        let p2 = &mut v[n - i - 1] as *mut String;
+        unsafe {
+            std::ptr::swap_nonoverlapping(p1, p2, 1);
+        }
+    }
+}
