@@ -43,3 +43,19 @@ fn reverse(v: &mut Vec<String>) {
         }
     }
 }
+
+struct Foo<'a> {
+    bar: &'a i32,
+}
+fn baz(f: Foo) -> &i32 {
+    // f moved here and will be dropped at the end of this function
+    // but the deallocation of f will not affect the value pointed to by f.bar
+    return f.bar;
+}
+
+fn main4() {
+    let x = 5;
+    let f = Foo { bar: &x };
+    let y = baz(f);
+    println!("{}", y);
+}
